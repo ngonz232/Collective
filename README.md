@@ -14,7 +14,6 @@ Original App Design Project - README Template
 The Collective app aims to harness the power of social media and use it to build social value and commmunity by having a platform where members of a community can come together to volunteer for local needs/events in their community. 
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Social Networking 
 - **Mobile:** Exclusively a mobile experience at initial launch. It would be using the camera to upload pictures of the events and users, and it would use location as well to see nearby needs for volunteers.
 - **Story:** Allows users to post local needs for volunteer services in their community as well as to sign up for posted volunteer events. It aims to harness collective power through social networking and make users come together towards one goal. 
