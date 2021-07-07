@@ -100,7 +100,7 @@ The Collective app aims to harness the power of social media and use it to build
   
 
 ## Wireframes
-<img src="/Collective-1.png" width = "100" height = "200">
+<img src="/Collective-1.png" width = "100" height = "200"> <img src="/Collective-2.png" width = "100" height = "200"> <img src="/Collective-3.png" width = "100" height = "200"> <img src="/Collective-4.png" width = "100" height = "200"> <img src="/Collective-5.png" width = "100" height = "200"> <img src="/Collective-6.png" width = "100" height = "200">
 
 
 ## Schema 
