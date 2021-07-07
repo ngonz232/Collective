@@ -100,12 +100,7 @@ The Collective app aims to harness the power of social media and use it to build
   
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FPNPIz6TyFpUHZ5mSt5LF9B%2FCollective%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
 
 ## Schema 
 [This section will be completed in Unit 9]
