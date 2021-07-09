@@ -104,7 +104,7 @@ The Collective app aims to harness the power of social media and use it to build
 ## Create an account! / Log in screen / Event Stream
 <img src="/Collective-4n.png" width = "100" height = "200"> <img src="/Collective-5.png" width = "100" height = "200"> <img src="/Collective-6.png" width = "100" height = "200">
 ## Event Detailed View / Post an Event / User Profile
-
+ 
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
