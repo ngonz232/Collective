@@ -145,7 +145,7 @@ The Collective app aims to harness the power of social media and use it to build
      - (Read/GET) Query all posted events
      - (Create/POST) Register for an event
      - (Delete) Delete existing event
-     - (POST) Event address to Google Maps API/Make event address clickable
+     - (POST) Event address to Google Maps API/Make event address clickable directing to a map
      - (Read/GET) Get user's location from DB
      - (Sort/Filter) User can sort by recent date or nearest event to their location
      
