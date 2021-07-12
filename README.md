@@ -138,7 +138,7 @@ The Collective app aims to harness the power of social media and use it to build
 ### Models
 [Add table of models]
 ### Networking
-*List of network requests by screentab
+* List of network requests by screentab
 - Home Feed Screen
 (Read/GET) Query all posted events
 let query = PFQuery(className:"Post")
