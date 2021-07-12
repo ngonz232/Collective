@@ -1,4 +1,4 @@
-Original App Design Project - README Template
+Original App Design Project - Collective
 ===
 
 # Collective
@@ -107,6 +107,9 @@ The Collective app aims to harness the power of social media and use it to build
 ## Event Detailed View / Post an Event / User Profile
  
 ## Schema 
+
+### Models
+
 * User
 
 | Property    | Type   | Description                    |
@@ -135,14 +138,15 @@ The Collective app aims to harness the power of social media and use it to build
 | Organizer              |    String             |   Name of event organizer/organization                                          |
 | Location      | String          | Event Address Provided by author            |
 
-### Models
-[Add table of models]
 ### Networking
 #### List of network requests by screentab
    * Home Feed Screen
      - (Read/GET) Query all posted events
      - (Create/POST) Register for an event
      - (Delete) Delete existing event
+     - (POST) Event address to Google Maps API/Make event address clickable
+     - (Read/GET) Get user's location from DB
+     - (Sort/Filter) User can sort by recent date or nearest event to their location
      
      ##### Example Code Syntax Snippet for our actions.
      let query = PFQuery(className:"Post")
@@ -159,11 +163,13 @@ The Collective app aims to harness the power of social media and use it to build
       
      
 * Post event tab
-     -  (Create/POST) Create a new post object
+     -  (Create/POST) Create a new event object
+     -  (PUT) Uploading event image
 * Profile Screen
      - (Read/GET) Query logged in user object
      - (Read/GET) Query all posts where user is registered/author
      - (Update/PUT) Update user profile image
+     - (Clear) Destroy current session/User can log out
 ## Gestures and Animations
 - Swipe left to delete posted event from list view (Delete button will show upon swiping left)
 - Zoom in animation to transition to the "Event Detailed View" upon clicking
