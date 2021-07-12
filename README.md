@@ -138,29 +138,32 @@ The Collective app aims to harness the power of social media and use it to build
 ### Models
 [Add table of models]
 ### Networking
-* List of network requests by screentab
-- Home Feed Screen
-(Read/GET) Query all posted events
-let query = PFQuery(className:"Post")
-query.whereKey("author", equalTo: currentUser)
-query.order(byDescending: "createdAt")
-query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
-   if let error = error { 
+#### List of network requests by screentab
+   * Home Feed Screen
+     - (Read/GET) Query all posted events
+     - (Create/POST) Register for an event
+     - (Delete) Delete existing event
+     
+     ##### Example Code Syntax Snippet for our actions.
+     let query = PFQuery(className:"Post")
+     query.whereKey("author", equalTo: currentUser)
+     query.order(byDescending: "createdAt")
+     query.findObjectsInBackground { (posts: [PFObject]?, error: Error?)      in
+      if let error = error { 
       print(error.localizedDescription)
-   } else if let posts = posts {
+      } else if let posts = posts {
       print("Successfully retrieved \(posts.count) posts.")
-  // TODO: Do something with posts...
-   }
-}
-(Create/POST) Register for an event
-(Delete) Delete existing event
-Create Post Screen
-(Create/POST) Create a new post object
-Profile Screen
-- (Read/GET) Query logged in user object
-- Query all posts where user is registered/author
-- (Update/PUT) Update user profile image
-
+      // TODO: Do something with posts...
+      }
+      }
+      
+     
+* Post event tab
+     -  (Create/POST) Create a new post object
+* Profile Screen
+     - (Read/GET) Query logged in user object
+     - (Read/GET) Query all posts where user is registered/author
+     - (Update/PUT) Update user profile image
 ## Gestures and Animations
 - Swipe left to delete posted event from list view (Delete button will show upon swiping left)
 - Zoom in animation to transition to the "Event Detailed View" upon clicking
