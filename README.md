@@ -37,6 +37,7 @@ The Collective app aims to harness the power of social media and use it to build
 * A profile page where the user can see their profile and events they registered for (Week Three)
 * Google Maps API implemented to show where a particular event is located (Week Three)
 * Each event has a "Date created" shown (Week Three)
+* User can filter events by either most recent date or nearest first (Week Three)
 
 **Optional Nice-to-have Stories**
 
