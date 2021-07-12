@@ -33,6 +33,7 @@ The Collective app aims to harness the power of social media and use it to build
 * User can post a new volunteer event to the stream as well as remove it (Week Two)
 * User can select a listed event and register/unregister as a volunteer (Week Two)
 * User can upload event pictures using their phones camera (Week Two)
+* Event's description is limited to a certain number of characters in the stream view. Detailed view shows full description.
 * User can upload a profile picture using their phone's camera (Week Three)
 * A profile page where the user can see their profile and events they registered for (Week Three)
 * Google Maps API implemented to show where a particular event is located (Week Three)
