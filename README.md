@@ -112,7 +112,7 @@ The Collective app aims to harness the power of social media and use it to build
 | Property      | Type            | Description                                 |
 | ------------- | --------------- | ------------------------------------------- |
 | authorId      | Pointer to user | Pointer to event's author                   |
-| eventId       | String          | unique id for the user post (default field) |
+| eventId       | String          | Unique id for the user post (default field) |
 | Image         | File            | Event's picture uploaded by author          |
 | eventName     | String          | Author-provided name                        |
 | numVolunteers | Number          | Number of volunteers needed                 |
