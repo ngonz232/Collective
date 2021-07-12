@@ -117,6 +117,7 @@ The Collective app aims to harness the power of social media and use it to build
 | Username    | String | User's registered username     |
 | Password    | String | User's selected password       |
 | fullName    | String | User's registered name         |
+| Gender       | String | User's selected gender       |
 | Email       | String | User's registered email        |
 | phoneNumber | String | User's registered phone number |
 | dateOfBirth            | String       | User's registered date of birth                               |
