@@ -67,7 +67,10 @@ The Collective app aims to harness the power of social media and use it to build
 * Event stream view
    * User can select a listed event and register/unregister as a volunteer
    * Each event has a "Date created" shown
-   * Google Maps API implemented to show where a particular event is located
+   
+* Event detailed view
+  * Google Maps API implemented to show where a particular event is located
+  * Extended description is shown   
 
 * Add or edit an event
   * User can post a new volunteer event to the stream as well as remove it
