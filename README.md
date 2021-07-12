@@ -206,7 +206,7 @@ The Collective app aims to harness the power of social media and use it to build
 * Optional Stories
    - (Sort/Filter) User can use a search bar to search volunteers and events
    - (Sort/Filter) The volunteers only appear in the list if they mark themselves as public (privacy settings)
-## External Libraries
+## External UI Libraries
 - SwipeToAction UI library for deleting a posted event
 - AnimatedBottomBar to navigate between tabs.
 - SwipeToRefreshLayout to pull latest event posts for the event stream view.
