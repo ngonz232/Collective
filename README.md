@@ -38,13 +38,15 @@ The Collective app aims to harness the power of social media and use it to build
 * Google Maps API implemented to show where a particular event is located (Week Three)
 * Each event has a "Date created" shown (Week Three)
 * User can filter events by either most recent date or nearest first (Week Three)
+* User can press on an event to be taken to a detailed view showing the Google Maps (Week Three)
+* User can swipe left to delete an event from the view (Week Three)
+* Zoom in animation when user transitions to detailed view (Week Three)
 
 **Optional Nice-to-have Stories**
 
 * User can see a list of local volunteers in card view
 * The volunteers only appear in the list if they mark themselves as public (privacy settings)
 * User can use a search bar to search volunteers and events
-* Each event has a detailed view
 * Each user profile card can be expanded into a detailed view
 * User can only remove their own posted events
 * User can only unregister themselves as a volunteer not others
@@ -92,7 +94,7 @@ The Collective app aims to harness the power of social media and use it to build
 * Create an account
    * Event Stream
 * Event Stream View
-   * Detailed view (if implemented)
+   * Detailed view 
 * Add an event
    * Event Stream View
 * Profile
@@ -174,3 +176,9 @@ The Collective app aims to harness the power of social media and use it to build
 ## Gestures and Animations
 - Swipe left to delete posted event from list view (Delete button will show upon swiping left)
 - Zoom in animation to transition to the "Event Detailed View" upon clicking
+## Complex Features
+* Required stories
+   - (Sort/Filter) We will query all posted events in the event stream and then the user can do a sort and filter call to the DB to display them by nearest location or most recently posted. This counts as a complex feature because we are using multiple calls and steps
+* Optional Stories
+   - (Sort/Filter) User can use a search bar to search volunteers and events
+   - (Sort/Filter) The volunteers only appear in the list if they mark themselves as public (privacy settings)
