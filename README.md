@@ -107,6 +107,20 @@ The Collective app aims to harness the power of social media and use it to build
 ## Event Detailed View / Post an Event / User Profile
  
 ## Schema 
+*User
+
+| Property    | Type   | Description                    |
+| ----------- | ------ | ------------------------------ |
+| Username    | String | User's registered username     |
+| Password    | String | User's selected password       |
+| fullName    | String | User's registered name         |
+| Email       | String | User's registered email        |
+| phoneNumber | String | User's registered phone number |
+| dateOfBirth            | String       | User's registered date of birth                               |
+| profilePicture            | File       |User's provided profile image                                |
+
+
+
 * Post
 
 | Property      | Type            | Description                                 |
