@@ -106,7 +106,6 @@ The Collective app aims to harness the power of social media and use it to build
 ## Event Detailed View / Post an Event / User Profile
  
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
 [Add table of models]
 ### Networking
