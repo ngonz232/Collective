@@ -184,6 +184,14 @@ The Collective app aims to harness the power of social media and use it to build
      - (Read/GET) Query all posts where user is registered/author
      - (Update/PUT) Update user profile image
      - (Clear) Destroy current session/User can log out
+
+##### Google Maps API
+
+
+| HTTP Verb | End Point     | Description                                                                                            |
+| --------- | ------------- | ------------------------------------------------------------------------------------------------------ |
+| GET          |  /getLatitude             | Converts an address to lat,long to pass to our map to display an event on it with a geoLocation marker                                                                                                       |
+| GET       | /getLongitude | Converts an address to lat,long to pass to our map to display an event on it with a geoLocation marker |
 ## Gestures and Animations
 - Swipe left to delete posted event from list view (Delete button will show upon swiping left)
 - Zoom in animation to transition to the "Event Detailed View" upon clicking
