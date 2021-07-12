@@ -40,7 +40,8 @@ The Collective app aims to harness the power of social media and use it to build
 * Each event has a "Date created" shown (Week Three)
 * User can filter events by either most recent date or nearest first (Week Three)
 * User can press on an event to be taken to a detailed view showing the Google Maps (Week Three)
-* User can swipe left to delete an event from the view (Week Three)
+* User can swipe left to delete an event from the view (Week Three) (Using SwipeToAction external UI library)
+* User can pull to refresh the event stream view (Week Three) (Using SwipeToRefresh external UI library)
 * Zoom in animation when user transitions to detailed view (Week Three)
 
 **Optional Nice-to-have Stories**
@@ -205,3 +206,7 @@ The Collective app aims to harness the power of social media and use it to build
 * Optional Stories
    - (Sort/Filter) User can use a search bar to search volunteers and events
    - (Sort/Filter) The volunteers only appear in the list if they mark themselves as public (privacy settings)
+## External Libraries
+- SwipeToAction UI library for deleting a posted event
+- AnimatedBottomBar to navigate between tabs.
+- SwipeToRefreshLayout to pull latest event posts for the event stream view.
