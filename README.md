@@ -107,6 +107,20 @@ The Collective app aims to harness the power of social media and use it to build
 ## Event Detailed View / Post an Event / User Profile
  
 ## Schema 
+* Post
+
+| Property      | Type            | Description                                 |
+| ------------- | --------------- | ------------------------------------------- |
+| authorId      | Pointer to user | Pointer to event's author                   |
+| eventId       | String          | unique id for the user post (default field) |
+| Image         | File            | Event's picture uploaded by author          |
+| eventName     | String          | Author-provided name                        |
+| numVolunteers | Number          | Number of volunteers needed                 |
+| Date          | String          | Date of event provided by author            |
+| Description   | String          | Description of event from author            |
+| Organizer              |    String             |   Name of event organizer/organization                                          |
+| Location      | String          | Event Address Provided by author            |
+
 ### Models
 [Add table of models]
 ### Networking
