@@ -27,16 +27,16 @@ The Collective app aims to harness the power of social media and use it to build
 
 **Required Must-have Stories**
 
-* User can login
-* User can create an account 
-* User can select a listed event and register/unregister as a volunteer
-* User can post a new volunteer event to the stream as well as remove it
-* User can upload a profile picture using their phone's camera
-* User can upload event pictures using their phones camera
-* Each event has a "Date created" shown
-* Ability to log out
-* A profile page where the user can see their profile and events they registered for
-* Google Maps API implemented to show where a particular event is located
+* User can login (Week One)
+* User can create an account (Week One)
+* Ability to log out (Week One)
+* User can post a new volunteer event to the stream as well as remove it (Week Two)
+* User can select a listed event and register/unregister as a volunteer (Week Two)
+* User can upload event pictures using their phones camera (Week Two)
+* User can upload a profile picture using their phone's camera (Week Three)
+* A profile page where the user can see their profile and events they registered for (Week Three)
+* Google Maps API implemented to show where a particular event is located (Week Three)
+* Each event has a "Date created" shown (Week Three)
 
 **Optional Nice-to-have Stories**
 
@@ -113,3 +113,7 @@ The Collective app aims to harness the power of social media and use it to build
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Gestures and Animations
+- Swipe left to delete posted event from list view (Delete button will show upon swiping left)
+- Zoom in animation to transition to the "Event Detailed View" upon clicking
