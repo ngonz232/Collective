@@ -185,7 +185,7 @@ The Collective app aims to harness the power of social media and use it to build
      - (Update/PUT) Update user profile image
      - (Clear) Destroy current session/User can log out
 
-##### Google Maps API
+#### Google Maps SDK/API
 
 
 | HTTP Verb | End Point     | Description                                                                                            |
