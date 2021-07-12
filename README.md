@@ -143,6 +143,13 @@ The Collective app aims to harness the power of social media and use it to build
 
 ### Networking
 #### List of network requests by screentab
+   * Login Screen
+     - (POST) User's entered login information to DB
+     - (Read/GET) Query the information in the DB. If it matches a user, authorize access. If not, revoke access.
+     
+   * Create an Account Screen
+     - (POST) User's entered information to create a new user object.  
+     
    * Home Feed Screen
      - (Read/GET) Query all posted events
      - (Create/POST) Register for an event
@@ -164,8 +171,12 @@ The Collective app aims to harness the power of social media and use it to build
       }
       }
       
-     
-* Post event tab
+* Event Detailed View
+     - (Read/GET) query selected event object
+     - (POST) Event location to Google Maps API
+     - (GET) Event geolocation marker on Google Maps API
+
+* Post Event Tab
      -  (Create/POST) Create a new event object
      -  (PUT) Uploading event image
 * Profile Screen
