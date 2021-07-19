@@ -26,6 +26,10 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        if (ParseUser.getCurrentUser() != null) {
+            goMainActivity();
+        }
+
         // Binding the register button
         register = binding.register;
 
@@ -62,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Intent to take user into the app upon successful login
     private void goMainActivity() {
-        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        Intent i = new Intent(LoginActivity.this, createEvent.class);
         startActivity(i);
         finish();
     }

@@ -6,7 +6,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 @ParseClassName("events")
-public class eventPost extends ParseObject {
+public class events extends ParseObject {
 
     public static final String KEY_NUM_VOLUNTEERS = "numVolunteers";
     public static final String KEY_DESCRIPTION = "Description";
@@ -17,12 +17,12 @@ public class eventPost extends ParseObject {
     public static final String KEY_AUTHOR = "author";
     public static final String KEY_EVENTNAME = "eventName";
 
-    public eventPost() {
+    public events() {
     }
 
-    public eventPost(ParseUser user, String Description,
-                     ParseFile image, String numVolunteers, String Date, String Organizer, String Location,
-                     String author, String eventName) {
+    public events(ParseUser user, String Description,
+                  ParseFile image, String numVolunteers, String Date, String Organizer, String Location,
+                  String author, String eventName) {
         setUser(user);
         setDescription(Description);
         setImage(image);
