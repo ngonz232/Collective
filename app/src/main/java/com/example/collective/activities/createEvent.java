@@ -12,46 +12,38 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.collective.R;
 import com.example.collective.databinding.ActivityCreateEventBinding;
-import com.example.collective.databinding.ActivityCreateEventBinding;
-import com.example.collective.models.events;
-import com.parse.Parse;
-import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.io.File;
-import java.util.Set;
 
-import static com.example.collective.databinding.ActivityCreateEventBinding.bind;
 import static com.example.collective.databinding.ActivityCreateEventBinding.inflate;
 
 public class createEvent extends AppCompatActivity {
     // Initializing binding
     private ActivityCreateEventBinding binding;
-    // Creating variables for buttons and textviews
+    // Creating variables for buttons and TextViews
     Button createEvent;
     Button uploadBtn;
     Button takeBtn;
     EditText location;
     EditText enterName;
     EditText description;
-    EditText enternumVolunteers;
+    EditText enterNumVolunteers;
     EditText enterDate;
     EditText enterOrganizerName;
     // Variable for image file
     private File photoFile;
     // TAG for error logs
-    private final String TAG = "createEvent";
+    private final static String TAG = "createEvent";
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
 
 
@@ -69,7 +61,7 @@ public class createEvent extends AppCompatActivity {
         location = binding.location;
         enterName = binding.enterName;
         description = binding.description;
-        enternumVolunteers = binding.enterNumVolunteers;
+        enterNumVolunteers = binding.enterNumVolunteers;
         enterDate = binding.enterDate;
         enterOrganizerName = binding.enterOrganizerName;
 
@@ -78,25 +70,27 @@ public class createEvent extends AppCompatActivity {
         createEvent.setOnClickListener(v -> saveEvent());
     }
 
+    // Returns the File for a photo stored on the disk given the filename photo.jpg
     private File getPhotoFileUri() {
-
+        // Gets a safe storage directory for the photos
         File mediaStorageDir = new File(this.getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
 
+        // Creates the storage directory for the photo if it does not exist
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
             Log.d(TAG, "Failed to create directory");
         }
-
+        // Returns the file
         return new File(mediaStorageDir.getPath() + File.separator + "photo.jpg");
     }
 
+    // This method is called when the camera intent activity is done
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                // by this point we have the camera photo on disk
+                // By this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                // RESIZE BITMAP, see section below
                 // Load the taken image into a preview
                 ImageView takenPhoto = binding.takenPhoto;
                 takenPhoto.setImageBitmap(takenImage);
@@ -106,20 +100,27 @@ public class createEvent extends AppCompatActivity {
         }
     }
 
+    // Method to launch camera intent and store the taken picture
     private void launchCamera() {
-
+        // Create Intent to take a picture and return control to the calling application
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Create a reference variable to the file for future access
         photoFile = getPhotoFileUri();
 
-        Uri fileProvider = FileProvider.getUriForFile(this, "com.codepath.fileprovider", photoFile);
+        // wrap File object into a content provider
+        Uri fileProvider = FileProvider.getUriForFile(this,
+        "com.codepath.fileprovider", photoFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
 
+        // Checks if there is an app to handle the intent
         if (intent.resolveActivity(this.getPackageManager()) != null) {
+            // Starts the intent to take the photo
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
 
-    private void emptyTextFields(){
+    // This resets all text fields after a post is completed
+    private void emptyTextFields() {
         binding.enterName.setText("");
         binding.enterDate.setText("");
         binding.description.setText("");
@@ -128,13 +129,15 @@ public class createEvent extends AppCompatActivity {
         binding.enterNumVolunteers.setText("");
     }
 
-    private void resetPhoto(){
+    // Resets Photo after post is completed
+    private void resetPhoto() {
         photoFile.delete();
         Drawable myDrawable = getResources().getDrawable(R.drawable.ic_baseline_add_a_photo_24);
         binding.takenPhoto.setImageDrawable(null);
         binding.takenPhoto.setImageDrawable(myDrawable);
     }
 
+    // Saves all entered information into Parse and saves in background
     private void saveEvent() {
         ParseObject events = ParseObject.create("events");
         events.put("eventName", binding.enterName.getText().toString());
@@ -146,13 +149,18 @@ public class createEvent extends AppCompatActivity {
         events.put("author", ParseUser.getCurrentUser());
         events.put("image", new ParseFile(photoFile));
 
+        // Log message method if there is an error saving the posts
         events.saveInBackground(e -> {
 
             if (e != null)
                 Log.e(TAG, "Error while saving post", e);
             return;
         });
+
+        // If our method reaches this point, we use a Toast for the successful save
         Toast.makeText(this, "Event Listed!", Toast.LENGTH_LONG).show();
+
+        // Calls for reset methods after the post is completed
         emptyTextFields();
         resetPhoto();
 

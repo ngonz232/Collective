@@ -20,6 +20,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@id/eventImage"
         android:text="Name here"
+        android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -31,6 +32,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@id/eventImage"
         android:text="Organizer"
+        android:textColor="@android:color/white"
         android:textSize="16sp" />
 
     <TextView
@@ -41,6 +43,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@id/eventImage"
         android:text="Address Here"
+        android:textColor="@android:color/white"
         android:textSize="16sp" />
 
     <TextView
@@ -51,6 +54,7 @@
         android:layout_marginLeft="10dp"
         android:layout_toEndOf="@id/eventImage"
         android:text="Short Description Here"
+        android:textColor="@android:color/white"
         android:textSize="16sp" />
 
     <Button

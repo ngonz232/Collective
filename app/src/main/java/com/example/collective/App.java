@@ -2,7 +2,7 @@ package com.example.collective;
 
 import android.app.Application;
 
-import com.example.collective.models.events;
+import com.example.collective.models.Event;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
@@ -14,7 +14,7 @@ public class App extends Application {
         super.onCreate();
 
         // Registering our eventPost model with parse
-        ParseObject.registerSubclass(events.class);
+        ParseObject.registerSubclass(Event.class);
 
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
