@@ -19,6 +19,8 @@ import com.example.collective.models.Event;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class eventsAdapter extends RecyclerView.Adapter<eventsAdapter.ViewHolder> {
 
     private List<Event> events;
@@ -55,7 +57,8 @@ public class eventsAdapter extends RecyclerView.Adapter<eventsAdapter.ViewHolder
             eventName.setText(event.geteventName());
             Description.setText(event.getDescription());
             Organizer.setText(event.getOrganizer());
-            Glide.with(context).load(event.getImage().getUrl()).into(eventImage);
+            Glide.with(context).load(event.getImage().getUrl()).centerCrop()
+            .transform(new RoundedCornersTransformation(30,10)).into(eventImage);
 
         }
     }

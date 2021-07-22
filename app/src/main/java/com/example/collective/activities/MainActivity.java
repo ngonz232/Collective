@@ -38,6 +38,13 @@ private ActivityMainBinding binding;
         rvEvents.setAdapter(adapter);
         queryEvents();
 
+        binding.swipeContainer.setOnRefreshListener(() -> {
+            allEvents.clear();
+            queryEvents();
+            binding.swipeContainer.setRefreshing(false);
+        });
+        binding.swipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright);
+
     }
 
     public void queryEvents() {
