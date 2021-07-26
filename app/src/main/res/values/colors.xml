@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="button_black">#201F1F</color>
+    <color name="unregister">#8A8888</color>
 </resources>
