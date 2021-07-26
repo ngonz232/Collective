@@ -210,3 +210,5 @@ The Collective app aims to harness the power of social media and use it to build
 - SwipeToAction UI library for deleting a posted event
 - AnimatedBottomBar to navigate between tabs.
 - SwipeToRefreshLayout to pull latest event posts for the event stream view.
+- Glide to apply rounded corner image transformation to images as well as the convert the Parse file image to a PNG displayable by the app
+- Cardview to improve the UI and display each event on the RecyclerView as a "card"
