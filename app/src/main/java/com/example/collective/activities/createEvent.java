@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.collective.R;
+import com.example.collective.Utils;
 import com.example.collective.databinding.ActivityCreateEventBinding;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -25,7 +26,6 @@ import com.parse.ParseUser;
 
 import java.io.File;
 
-import static com.example.collective.databinding.ActivityCreateEventBinding.inflate;
 
 public class createEvent extends AppCompatActivity {
     // Initializing binding
@@ -44,7 +44,6 @@ public class createEvent extends AppCompatActivity {
     private File photoFile;
     // TAG for error logs
     private final static String TAG = "createEvent";
-    public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
 
 
     @Override
@@ -87,7 +86,7 @@ public class createEvent extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+        if (requestCode == Utils.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 // By this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
@@ -115,7 +114,7 @@ public class createEvent extends AppCompatActivity {
         // Checks if there is an app to handle the intent
         if (intent.resolveActivity(this.getPackageManager()) != null) {
             // Starts the intent to take the photo
-            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+            startActivityForResult(intent, Utils.CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
 
@@ -137,33 +136,89 @@ public class createEvent extends AppCompatActivity {
         binding.takenPhoto.setImageDrawable(myDrawable);
     }
 
+    /* Method to check if required fields are filled by the user
+    Otherwise, it returns an error message to the user on the unfilled TextField
+     */
+    public  boolean checkValidation() {
+
+        // Nested "if" statements checking each field and file before proceeding
+        if (enterName.length() <= 0) {
+            enterName.requestFocus();
+            enterName.setError("Enter Event Name");
+            return false;
+
+        } else if (photoFile == null) {
+            // Toast to notify the user no image has been selected
+            Toast.makeText(this, "Please Take or Upload a Picture!", Toast.LENGTH_LONG).show();
+            return false;
+
+        } else if (enterNumVolunteers.length() <= 0) {
+            enterNumVolunteers.requestFocus();
+            enterNumVolunteers.setError("Enter Number of Volunteers Needed");
+            return false;
+
+        } else if (enterDate.length() <= 0) {
+            enterDate.requestFocus();
+            enterDate.setError("Enter Event Date");
+            return false;
+
+        } else if (enterOrganizerName.length() <= 0) {
+            enterOrganizerName.requestFocus();
+            enterOrganizerName.setError("Enter Organizer's Name");
+            return false;
+
+        } else if (location.length() <= 0) {
+            location.requestFocus();
+            location.setError("Enter Full Address");
+            return false;
+
+        } else if (description.length() <= 0) {
+            description.requestFocus();
+            description.setError("Enter Description");
+            return false;
+
+        } else {
+            return true;
+        }
+    }
+
     // Saves all entered information into Parse and saves in background
     private void saveEvent() {
-        ParseObject events = ParseObject.create("events");
-        events.put("eventName", binding.enterName.getText().toString());
-        events.put("Date", binding.enterDate.getText().toString());
-        events.put("Description", binding.description.getText().toString());
-        events.put("Organizer", binding.enterOrganizerName.getText().toString());
-        events.put("Location", binding.location.getText().toString());
-        events.put("numVolunteers", Integer.parseInt(binding.enterNumVolunteers.getText().toString()));
-        events.put("author", ParseUser.getCurrentUser());
-        events.put("image", new ParseFile(photoFile));
 
-        // Log message method if there is an error saving the posts
-        events.saveInBackground(e -> {
+        /* "If" statement checks if our earlier field validation method returns true before saving
+        content to Parse
+         */
+        if (checkValidation()) {
+            ParseObject Event = ParseObject.create("Event");
+            Event.put("eventName", binding.enterName.getText().toString());
+            Event.put("Date", binding.enterDate.getText().toString());
+            Event.put("Description", binding.description.getText().toString());
+            Event.put("Organizer", binding.enterOrganizerName.getText().toString());
+            Event.put("Location", binding.location.getText().toString());
+            Event.put("desiredSkills", binding.desiredSkills.getText().toString());
+            Event.put("numVolunteers", Integer.parseInt(binding.enterNumVolunteers.getText().toString()));
+            Event.put("author", ParseUser.getCurrentUser());
+            Event.put("image", new ParseFile(photoFile));
 
-            if (e != null)
-                Log.e(TAG, "Error while saving post", e);
-            return;
-        });
+            // Log message method if there is an error saving the posts
+            Event.saveInBackground(e -> {
 
-        // If our method reaches this point, we use a Toast for the successful save
-        Toast.makeText(this, "Event Listed!", Toast.LENGTH_LONG).show();
+                if (e != null)
+                    Log.e(TAG, "Error while saving post", e);
+                return;
+            });
 
-        // Calls for reset methods after the post is completed
-        emptyTextFields();
-        resetPhoto();
+            // If our method reaches this point, we use a Toast for the successful save
+            Toast.makeText(this, "Event Listed!", Toast.LENGTH_LONG).show();
 
+            // Calls for reset methods after the post is completed
+            emptyTextFields();
+            resetPhoto();
+
+            // Intent to go back to the main feed after creating an event post
+            Intent i = new Intent(createEvent.this, MainActivity.class);
+            startActivity(i);
+        }
     }
 }
 

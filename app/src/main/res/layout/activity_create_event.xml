@@ -49,7 +49,7 @@
         android:layout_below="@+id/takenPhoto"
         android:layout_alignParentStart="true"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="25dp"
         android:text="Event Name:"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
@@ -65,7 +65,9 @@
         android:layout_marginEnd="23dp"
         android:layout_toEndOf="@+id/enterNameText"
         android:background="@drawable/ettextbg"
-        android:backgroundTint="@android:color/white" />
+        android:backgroundTint="@android:color/white"
+        android:inputType="text"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/numVolunteersText"
@@ -73,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/enterNameText"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="27dp"
         android:text="Number of Volunteers Needed:"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
@@ -84,11 +86,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/enterName"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/numVolunteersText"
         android:background="@drawable/ettextbg"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/enterDateText"
@@ -112,7 +115,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/enterDateText"
-        android:background="@drawable/ettextbg" />
+        android:background="@drawable/ettextbg"
+        android:textColor="#000000"
+        android:inputType="text"
+        />
 
     <TextView
         android:id="@+id/enterOrganizerNameText"
@@ -120,10 +126,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/enterDateText"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="40dp"
         android:text="Name of Organizer:"
         android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        />
 
     <EditText
         android:id="@+id/enterOrganizerName"
@@ -134,7 +141,10 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@+id/enterOrganizerNameText"
-        android:background="@drawable/ettextbg" />
+        android:background="@drawable/ettextbg"
+        android:textColor="#000000"
+        android:inputType="text"
+        />
 
     <TextView
         android:id="@+id/locationText"
@@ -143,7 +153,7 @@
         android:layout_below="@id/enterOrganizerNameText"
         android:layout_alignParentStart="true"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="37dp"
         android:text="Full Location Address:"
         android:textColor="@android:color/white"
         android:textSize="20sp" />
@@ -160,17 +170,30 @@
         android:background="@drawable/ettextbg"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        />
+        android:inputType="text"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/descriptionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/locationText"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="34dp"
         android:text="Description:"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/desiredSkillsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionText"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:text="Desired Skills:"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -179,24 +202,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/location"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="20dp"
         android:layout_toEndOf="@id/descriptionText"
         android:background="@drawable/ettextbg"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/desiredSkills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@id/descriptionText"
+        android:background="@drawable/ettextbg"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Optional"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="@android:color/black" />
 
     <Button
         android:id="@+id/createEvent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="55dp"
+        android:layout_below="@+id/desiredSkills"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="14dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/button_black"
         android:clickable="true"
         android:text="Post Event!"
