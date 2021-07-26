@@ -46,9 +46,8 @@ The Collective app aims to harness the power of social media and use it to build
 
 **Optional Nice-to-have Stories**
 
-* User can see a list of local volunteers in card view
-* The volunteers only appear in the list if they mark themselves as public (privacy settings)
-* User can use a search bar to search volunteers and events
+* CardView to display each event as a “card” on the RecyclerView
+* User can use a search bar to search and filter events
 * Each user profile card can be expanded into a detailed view
 * User can only remove their own posted events
 * User can only unregister themselves as a volunteer not others
@@ -56,9 +55,17 @@ The Collective app aims to harness the power of social media and use it to build
 * User can add skills to their own profile
 * User can specify skills needed when creating an event
 * A map page using the Google Maps API that shows ALL events near you
-* Animations between pages and a ripple effect on volunteer profile cards
+* Animations between loading new activities/fragments
 * A nice UI with gradient logos and backgrounds
-
+* Glide transformation library to round image corners
+* Validation check for required fields for both the “Sign up” and the “Create an event” activities
+* Animated bottom navigation bar to switch in-between activities
+* Implement Fragment View to have better UI loading and library options
+* Implement ViewBinding to reduce boilerplate
+* EndlessRecyclerScrollListener for the user to keep scrolling through posted events
+* Toolbar to display search and filtering options
+* User can upload a file to use as an image for the event
+* Display logo on app launcher icon and Toolbar
 ### 2. Screen Archetypes
 
 * Login
