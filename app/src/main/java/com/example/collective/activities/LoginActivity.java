@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // Checks if user has already logged in to skip login process/persist login
         if (ParseUser.getCurrentUser() != null) {
             goMainActivity();
         }
@@ -47,7 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 //    // Sets click listener to login button. This is referenced in the LoginActivity.xml
     public void loginOnClick(View v) {
         // Gets user inputs for both username and password passing it to the login method
-        String username = binding.username.getText().toString();
+        // Username converted to lowercase for case insensitivity
+        String username = binding.username.getText().toString().toLowerCase();
         String password = binding.password.getText().toString();
         loginUser(username, password);
     }
@@ -60,11 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Username or password is incorrect.", Toast.LENGTH_SHORT).show();
                 return;
             }
+            // Calls intent method upon successful login to take the user into the app
             goMainActivity();
         });
     }
 
-    // Intent to take user into the app upon successful login
+    // Intent method to take user into the app upon successful login
     private void goMainActivity() {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
