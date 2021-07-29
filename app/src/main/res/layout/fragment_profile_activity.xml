@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/bg_gradient"
+tools:context=".fragments.ProfileActivity">
+
+<ImageView
+    android:id="@+id/logoCollective"
+    android:layout_width="128dp"
+    android:layout_height="43dp"
+    android:layout_alignParentStart="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:src="@drawable/logo" />
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/profileSwipe"
+        android:layout_width="match_parent"
+        android:layout_height="435dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEvents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="40dp">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_account_circle_24" />
+    </androidx.cardview.widget.CardView>
+
+<TextView
+    android:id="@+id/Username"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="180dp"
+    android:text="Nicholas"
+    android:textColor="@android:color/white"
+    android:textSize="20sp"
+    android:textStyle="bold" />
+
+<TextView
+    android:id="@+id/fullNameProfile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/Username"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="5dp"
+    android:text="Nicholas Gonzalez"
+    android:textColor="@android:color/white"
+    android:textSize="16sp"
+    tools:layout_centerHorizontal="true" />
+
+<Button
+    android:id="@+id/btnLogout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/fullNameProfile"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="10dp"
+    android:backgroundTint="@color/button_black"
+    android:text="Log out!"
+    app:cornerRadius="30dp" />
+
+</RelativeLayout>
