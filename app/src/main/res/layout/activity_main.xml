@@ -4,39 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_gradient">
+   >
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeContainer"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="680dp"
-        android:layout_below="@+id/my_toolbar"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_bar"></androidx.fragment.app.FragmentContainerView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvEvents"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    <nl.joery.animatedbottombar.AnimatedBottomBar
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:background="@color/button_black"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/logo" />
-
-    </androidx.appcompat.widget.Toolbar>
+        app:abb_indicatorColor="@color/instagramPink"
+        app:abb_indicatorAppearance="round"
+        app:abb_indicatorHeight="4dp"
+        app:abb_indicatorMargin="16dp"
+        app:abb_selectedIndex="0"
+        app:abb_selectedTabType="text"
+        app:abb_tabs="@menu/tabs"
+        app:abb_badgeTextColor="@color/instagramPink"
+        app:abb_tabColor="@color/instagramPink"
+        app:abb_tabColorSelected="@color/white"
+        />
 </RelativeLayout>
