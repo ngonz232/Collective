@@ -13,20 +13,19 @@
         android:id="@+id/filterGroup"
         android:checkableBehavior="none"
         app:showAsAction="always"
-        android:icon ="@drawable/ic_action_filter">
+        android:icon ="@drawable/ic_action_filtericon">
         <item
             android:id="@+id/filterRecent"
-            android:icon="@drawable/ic_action_filter"
-            android:title="Most Recent"/>
-<!--            android:onClick="recentFilter"-->
-            />
+            android:icon="@drawable/ic_action_filtericon"
+            android:title="Most Recent"
+           />
+
         <item
             android:id="@+id/filterNearest"
             android:checkable="false"
-            android:icon="@drawable/ic_action_filter"
+            android:icon="@drawable/ic_action_filtericon"
             android:title="Nearest First"/>
-<!--            android:onClick="nearestFirst"-->
-            />
+
     </group>
 
 </menu>

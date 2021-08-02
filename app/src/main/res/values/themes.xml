@@ -14,5 +14,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="exit">
+        <item name="android:windowEnterAnimation">@anim/slide_out</item>
     </style>
 </resources>
