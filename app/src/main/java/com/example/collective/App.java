@@ -13,7 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Registering our eventPost model with parse
+        // Registering our Event model with parse
         ParseObject.registerSubclass(Event.class);
 
         Parse.initialize(new Parse.Configuration.Builder(this)
