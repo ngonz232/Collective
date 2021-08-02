@@ -84,6 +84,7 @@
             android:backgroundTint="@color/button_black"
             android:text="@string/not_registered"
             android:textColor="@android:color/white"
-            card_view:cornerRadius="30dp" />
+            card_view:cornerRadius="30dp"
+            />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
