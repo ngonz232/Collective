@@ -49,13 +49,23 @@ public class SignUp extends AppCompatActivity {
         maleCheck = binding.maleCheck;
         femaleCheck = binding.femaleCheck;
 
+        // OnClickListener for male gender radio button
         maleCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Set gender string and store it in Parse based on user selected checkbox
                 if (maleCheck.isChecked()) {
                     gender = "male";
-                } else if (femaleCheck.isChecked()) {
+                }
+            }
+        });
+
+        // OnClickListener for female gender radio button
+        femaleCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Set gender string and store it in Parse based on user selected checkbox
+                if (femaleCheck.isChecked()) {
                     gender = "female";
                 }
             }
@@ -64,8 +74,8 @@ public class SignUp extends AppCompatActivity {
         register2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Set core properties
                 ParseUser user = new ParseUser();
-// Set core properties
 // Username converted to lowercase for case insensitivity
                 user.setUsername(username.getText().toString().toLowerCase());
                 user.setPassword(password.getText().toString());

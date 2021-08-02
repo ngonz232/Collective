@@ -1,7 +1,5 @@
 package com.example.collective.models;
 
-import android.location.Location;
-
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -11,12 +9,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
+// Declaring our Parse class
 @ParseClassName("Event")
 public class Event extends ParseObject {
 
+    // Keys to our Parse columns
     public static final String KEY_NUM_VOLUNTEERS = "numVolunteers";
     public static final String KEY_DESCRIPTION = "Description";
     public static final String KEY_IMAGE = "image";
@@ -28,9 +25,12 @@ public class Event extends ParseObject {
     public static final String KEY_DESIRED_SKILLS = "desiredSkills";
     public static final String KEY_REGISTERED_USERS = "registeredUsers";
 
+
+    // Empty constructor required for Parse
     public Event() {
     }
 
+    // Constructor for our Event object model
     public Event(ParseUser user, String Description,
                  ParseFile image, Integer numVolunteers, String Date, String Organizer, String Location,
                  String author, String eventName, String desiredSkills, JSONArray registeredUsers) {
@@ -47,75 +47,121 @@ public class Event extends ParseObject {
 
     }
 
-    public void unregister(ParseUser currentUser) throws JSONException {
-        JSONArray registeredUsers = registeredUsers();
-
-        if(registeredUsers == null) {
-           registeredUsers = new JSONArray();
-        }
-
-        for (int i = 0; i < registeredUsers.length(); i++) {
-            JSONObject userPointer = registeredUsers.getJSONObject(i);
-            if (userPointer.getString("objectId").equals(currentUser.getObjectId())) {
-                registeredUsers.remove(i);
-                setregisteredUsers(registeredUsers);
-            }
-        }
-    }
-
-    public void register(ParseUser currentUser) {
-        add(KEY_REGISTERED_USERS, currentUser);
-    }
-
-
-
+    // Getters for our required object properties in Parse
     public ParseUser getUser() {
         return getParseUser(KEY_AUTHOR);
-    }
-
-    public void setUser(ParseUser user) {
-        put(KEY_AUTHOR, user);
     }
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
     }
 
-    public void setDescription(String description) {
-        put(KEY_DESCRIPTION, description);
-    }
-
-    public ParseFile getImage() {
-        return getParseFile(KEY_IMAGE);
-    }
-
-    public void setImage(ParseFile parseFile) {
-        put(KEY_IMAGE, parseFile);
-    }
-
     public String getAuthor() {
         return getString(KEY_AUTHOR);
-    }
-
-    public void setAuthor(String author) {
-        put(KEY_AUTHOR, author);
     }
 
     public Integer getnumVolunteers() {
         return  getInt(KEY_NUM_VOLUNTEERS);
     }
 
-    public JSONArray registeredUsers() { return getJSONArray(KEY_REGISTERED_USERS); }
-    public void setregisteredUsers(JSONArray registeredUsers) { put(KEY_REGISTERED_USERS, registeredUsers); }
+    public ParseFile getImage() {
+        return getParseFile(KEY_IMAGE);
+    }
 
+    public String getdesiredSkills() {
+        return getString(KEY_DESIRED_SKILLS);
+    }
+
+    public String geteventName() {
+        return getString(KEY_EVENTNAME);
+    }
+
+    public String getOrganizer() {
+        return getString(KEY_ORGANIZER);
+    }
+
+    public String getLocation() {
+        return getString(KEY_LOCATION);
+    }
+
+    public String getDate() {
+        return getString(KEY_DATE);
+    }
+
+    // Setters for our object properties in Parse
+
+    public void setUser(ParseUser user) {
+        put(KEY_AUTHOR, user);
+    }
+
+    public void setDescription(String description) {
+        put(KEY_DESCRIPTION, description);
+    }
+
+    public void setImage(ParseFile parseFile) {
+        put(KEY_IMAGE, parseFile);
+    }
+
+    public void setAuthor(String author) {
+        put(KEY_AUTHOR, author);
+    }
+
+    public void setnumVolunteers(int numVolunteers) {
+        put(KEY_NUM_VOLUNTEERS, numVolunteers);
+    }
+
+    public void setDate(String Date) {
+        put(KEY_DATE, Date);
+    }
+
+    public void setOrganizer(String Organizer) {
+        put(KEY_ORGANIZER, Organizer);
+    }
+
+    public void setLocation(String Location) {
+        put(KEY_LOCATION, Location);
+    }
+
+    public void seteventName(String eventName) {
+        put(KEY_EVENTNAME, eventName);
+    }
+
+    public void setdesiredSkills(String desiredSkills) {
+        put(KEY_DESIRED_SKILLS, desiredSkills);
+    }
+
+    // Gets registeredUsers JSONArray from database
+    public JSONArray registeredUsers() { return getJSONArray(KEY_REGISTERED_USERS); }
+
+    // Setter for the registeredUsers JSONArray
+    public void setregisteredUsers(JSONArray registeredUsers) { put(KEY_REGISTERED_USERS,
+            registeredUsers); }
+
+    // Boolean function to check if the user exists in the "registeredUsers" array of the event
     public boolean isUserRegistered(ParseUser user) {
+
+        // Initializes the array to what we get from the Parse database
         if (registeredUsers() != null) {
             JSONArray usersRegistered = registeredUsers();
 
+            // "For" loop iterates each item of the array
             for (int i = 0; i < usersRegistered.length(); i++) {
+
+                // Initializing our userPointer
                 JSONObject userPointer = null;
+
+                // Try/Catch handling exceptions
                 try {
+
+                    /* Sets the userPointer to the one stored at the particular index of our
+                    registeredUsers JSONArray
+                     */
                     userPointer = usersRegistered.getJSONObject(i);
+
+                    /* If any of the userPointers in the registeredUsers
+                    JSONArray matches that of our current user passed to this function then
+                    it returns true as the user is registered
+                     */
                     if (userPointer.getString("objectId").equals(user.getObjectId())) {
                         return true;
                     }
@@ -124,50 +170,38 @@ public class Event extends ParseObject {
                 }
             }
         }
+        // Else if the user is not in the array of registeredUsers return "false"
         return false;
     }
-        public void setnumVolunteers(int numVolunteers) {
-        put(KEY_NUM_VOLUNTEERS, numVolunteers);
+
+    /* Method to add the userPointer of the current user to the registeredUsers Array
+   called in the EventsAdapter upon clicking the register button (if the user is not registered)
+    */
+    public void register(ParseUser currentUser) {
+        add(KEY_REGISTERED_USERS, currentUser);
     }
 
-    public String getDate() {
-        return getString(KEY_DATE);
-    }
+    // Method called from the EventsAdapter to unregister user
+    public void unregister(ParseUser currentUser) throws JSONException {
 
-    public void setDate(String Date) {
-        put(KEY_DATE, Date);
-    }
+        // Initializes the array to what we get from the Parse database
+        JSONArray registeredUsers = registeredUsers();
 
-    public String getOrganizer() {
-        return getString(KEY_ORGANIZER);
-    }
+        // Creates new JSONArray if empty
+        if(registeredUsers == null) {
+            registeredUsers = new JSONArray();
+        }
 
-    public void setOrganizer(String Organizer) {
-        put(KEY_ORGANIZER, Organizer);
-    }
-
-    public String getLocation() {
-        return getString(KEY_LOCATION);
-    }
-
-    public void setLocation(String Location) {
-        put(KEY_LOCATION, Location);
-    }
-
-    public String geteventName() {
-        return getString(KEY_EVENTNAME);
-    }
-
-    public void seteventName(String eventName) {
-        put(KEY_EVENTNAME, eventName);
-    }
-
-    public String getdesiredSkills() {
-        return getString(KEY_DESIRED_SKILLS);
-    }
-
-    public void setdesiredSkills(String desiredSkills) {
-        put(KEY_DESIRED_SKILLS, desiredSkills);
+        /* For loop iterates entire JSONArray to remove the passed userPointer from the
+       registeredUsers array
+         */
+        for (int i = 0; i < registeredUsers.length(); i++) {
+            JSONObject userPointer = registeredUsers.getJSONObject(i);
+            if (userPointer.getString("objectId").equals(currentUser.getObjectId())) {
+                registeredUsers.remove(i);
+                setregisteredUsers(registeredUsers);
+            }
+        }
     }
 
 }

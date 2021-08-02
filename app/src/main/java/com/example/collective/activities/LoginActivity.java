@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Intent method to take user into the app upon successful login
     private void goMainActivity() {
-        Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
         finish();
     }
