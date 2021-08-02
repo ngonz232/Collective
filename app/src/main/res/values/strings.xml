@@ -12,10 +12,12 @@
     <string name="not_registered">Register!</string>
     <string name="unregister">Unregister!</string>
 
-    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
-
-
-    <string name="back4app_app_id">Nt8Ax8xTqJ43fqFnKD5qiFRlMpMoqjjjSFXE79mD</string>
-    <string name="back4app_client_key">cPsvj22uPrvOouit9Hy2CWrvTC8tsXH165NgzhAK</string>
+    <!-- Strings related to activity names -->
     <string name="title_activity_maps">Map</string>
+    <string name="Home">Home</string>
+    <string name="Publish">Publish</string>
+    <string name="Map">Map</string>
+    <string name="Profile">Profile</string>
+
+
 </resources>
